@@ -1,3 +1,5 @@
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 
@@ -7,13 +9,15 @@ import { filesRoutes } from './presentaion/routes/files.routes';
 dotenv.config();
 
 const app = express();
-const encoded = express.urlencoded({ extended: true });
-const useJson = express.json();
 const prefix = '/api/v1';
 const port = process.env.PORT;
+const parseJson = bodyParser.json({ limit: '150mb' });
+const parseUrlencoded = bodyParser.urlencoded({ limit: '150mb', extended: true, parameterLimit: 5000000 });
+const setCors = cors();
 
-app.use(encoded);
-app.use(useJson);
+app.use(parseJson);
+app.use(parseUrlencoded);
+app.use(setCors);
 app.use(prefix, checkerRoutes);
 app.use(prefix, filesRoutes);
-app.listen(port);
+app.listen(port, () => console.log(`running at ${port}`));

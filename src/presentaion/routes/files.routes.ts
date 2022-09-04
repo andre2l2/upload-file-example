@@ -1,8 +1,10 @@
 import { Router } from 'express';
 
-const filesRoutes = Router().post('/file-save', (req, res) => {
-  console.log(req.body);
-  res.json({}).status(200);
+const filesRoutes = Router().post('/file', (req, res) => {
+  const body = req.body;
+  console.log(body);
+
+  res.json({ value: 'ok' }).status(201);
 });
 
 export { filesRoutes };

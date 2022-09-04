@@ -5,21 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>File Save</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <forms>
-      <label for="file">
-        <input type="file" id="file" name="file" />
-      </label>
-      <button type="submit">Save</button>
-    </form>
+    <section>
+      <div>
+        <label for="file">
+          <input type="file" id="file" name="file" onchange="saveFile(this)" />
+        </label>
+        <button onclick="snedFile()">Send</button>
+      </div>
+    </section>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    const file = document.querySelector('#file');
-    const button = document.querySelector('button');
+    const fileInfos = {
+      name: '',
+      type: '',
+      buffer: '',
+    };
 
-    button.addEventListener('click', () => {
-      const fileRender = new FileReader()
-    });
+    function saveFile(input) {
+      const file = input.files[0];
+      fileInfos.name = file.name;
+      fileInfos.type = file.type;
+
+      const fileReader = new FileReader();
+      fileReader.readAsText(file);
+      fileReader.onload = () => {
+        fileInfos.buffer = fileReader.result;
+      };
+
+      fileReader.onerror = () => {
+        console.log('err');
+      };
+    }
+
+    async function snedFile() {
+      const data = await axios.post('http://localhost:3333/api/v1/file', fileInfos);
+      console.log(data);
+    }
   </script>
 </html>

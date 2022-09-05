@@ -5,9 +5,45 @@ body {
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+}
+
 section {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+section > div {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section > div > label > input {
+  display: none;
+}
+
+section > div > label > button {
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 3px;
+  border-style: dashed;
+  border-width: 2px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section > div > button {
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: cadetblue;
 }

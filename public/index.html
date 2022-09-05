@@ -31,18 +31,16 @@
       fileInfos.type = file.type;
 
       const fileReader = new FileReader();
-      fileReader.readAsText(file);
+      fileReader.readAsText(file, 'base64');
+
       fileReader.onload = () => {
         fileInfos.buffer = fileReader.result;
-      };
-
-      fileReader.onerror = () => {
-        console.log('err');
       };
     }
 
     async function snedFile() {
-      const data = await axios.post('http://localhost:3333/api/v1/file', fileInfos);
+      console.log(fileInfos);
+      const data = await axios.post('http://localhost:3332/api/v1/file', fileInfos);
       console.log(data);
     }
   </script>

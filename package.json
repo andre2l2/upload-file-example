@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "Andre Ferreira",
   "license": "MIT",
+  "engines": {
+    "node": "^16.15.0"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",

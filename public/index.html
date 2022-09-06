@@ -11,44 +11,13 @@
     <section>
       <div>
         <label for="file">
-          <button class="file" onclick="openFile()">Select a file</button>
-          <input type="file" class="input-file" onchange="saveFile(this)" />
+          <button class="upload">Select a file</button>
         </label>
         <label for="file-names" class="file-names"></label>
-        <button onclick="snedFile()">Send</button>
+        <button class="send">Send</button>
       </div>
     </section>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    const fileInfos = {
-      name: '',
-      type: '',
-      buffer: '',
-    };
-
-    function openFile() {
-      document.querySelector('.input-file').click();
-    }
-
-    function saveFile(input) {
-      const file = input.files[0];
-      fileInfos.name = file.name;
-      fileInfos.type = file.type;
-      document.querySelector('.file-names').innerHTML = `<div>${fileInfos.name}</div>`;
-
-      const fileReader = new FileReader();
-      fileReader.readAsText(file, 'base64');
-
-      fileReader.onload = () => {
-        fileInfos.buffer = fileReader.result;
-      };
-    }
-
-    async function snedFile() {
-      console.log(fileInfos);
-      const data = await axios.post('http://localhost:3332/api/v1/file', fileInfos);
-      console.log(data);
-    }
-  </script>
+  <script type="module" src="./javascript/script.js"></script>
 </html>

@@ -5,7 +5,7 @@
 
 ## :art: About
 
-This is a project for help me. How I upload file with FileReader api, and this you this too.
+This is a project for help me. How I upload file with FileReader api, and this help you this too.
 
 ## :rocket: How to run?
 

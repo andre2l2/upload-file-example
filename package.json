@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start:dev": "ts-node src/index.ts"
+    "start:dev": "ts-node src/index.ts",
+    "start": "node ./dist/src",
+    "build": "tsc --build"
   },
   "keywords": [],
   "author": "Andre Ferreira",

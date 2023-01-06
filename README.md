@@ -26,3 +26,13 @@ npm run start:dev
 ### Step three
 
 Open index.html file into the **public** > **index.html** and send a file
+
+## How to build this project?
+
+If you want build this poject you can run:
+
+```bash
+npm run build
+```
+
+After you build, was created a dist directory, and you can run with node.js.

@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 const prefix = '/api/v1';
-const port = process.env.PORT;
+const port = process.env.PORT || '3332';
 const parseJson = bodyParser.json({ limit: '150mb' });
 const parseUrlencoded = bodyParser.urlencoded({ limit: '150mb', extended: true, parameterLimit: 5000000 });
 const setCors = cors();

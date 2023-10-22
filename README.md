@@ -9,21 +9,29 @@ This is a project for help me. How I upload file with FileReader api, and this h
 
 ## :rocket: How to run?
 
-For run this project you need:
+Has two ways run this project, one with docker and two with node local.
 
-### Step one
+### Run with docker
+
+```bash
+docker build -t file-example .
+```
+
+### Run with local node
+
+#### Step one
 
 ```bash
 npm install
 ```
 
-### Step two
+#### Step two
 
 ```bash
 npm run start:dev
 ```
 
-### Step three
+#### Step three
 
 Open index.html file into the **public** > **index.html** and send a file
 

@@ -13,8 +13,6 @@ export class FileUtils {
     const buffer = Buffer.from(file, 'base64');
     const extention = this.getExtention(infos);
 
-    fs.writeFile(`./public/files/${new Date().toISOString()}.${extention}`, buffer, (err) => {
-      if (err) console.log(err);
-    });
+    fs.writeFileSync(`./public/img/${new Date().toISOString()}.${extention}`, buffer);
   }
 }

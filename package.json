@@ -12,7 +12,7 @@
   "author": "Andre Ferreira",
   "license": "MIT",
   "engines": {
-    "node": "^16.15.0"
+    "node": "^20.15.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
